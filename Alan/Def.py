@@ -1,4 +1,4 @@
-# Alejandro Alan Gutierrez Cortes, Mie, 21/07/2021, Aplicación Informativa de direcciones IPv4 e IPv6 públicas.
+# Alejandro Alan Gutierrez Cortes, Jueves, 21/07/2021, Aplicación Informativa de direcciones IPv4 e IPv6 públicas.
 
 import requests
 import json
@@ -14,11 +14,11 @@ def get_private_ip():
         ip_address_v4 = socket.gethostbyname(hostname)
         ip_address_v6 = socket.gethostbyaddr(hostname)
         list_ip_address_v6 = ip_address_v6
-        ip_address2 = socket.getaddrinfo("google.com", 80)
+        ip_address_org = socket.getaddrinfo("google.com", 80)
         print(f'\nMy Hostname is: {hostname}')
-        print('My Internal Ipv4 Address is: {} '.format(ip_address_v4))
-        print('My Internal Ipv6 Address is: {} '.format("".join(list_ip_address_v6[2])))
-        print(f'Google Ip Address is: {ip_address2}')
+        print('My Internal IPv4 Address is: {} '.format(ip_address_v4))
+        print('My Internal IPv6 Address is: {} '.format("".join(list_ip_address_v6[2])))
+        #print(f'Google Ip Address is: {ip_address_org}')
         return
         pass
     except Exception as e:
@@ -30,9 +30,9 @@ def get_private_ip():
 def get_public_ip():
     try:
         external_ipv4 = urllib.request.urlopen('https://v4.ident.me/').read( ).decode('utf8')
-        print(f'My Public Ipv4 Address is: {external_ipv4}')
+        print(f'My Public IPv4 Address is: {external_ipv4}')
         external_ipv6 = urllib.request.urlopen('https://ident.me/').read().decode('utf8')
-        print(f'My Public Ipv6 Address is: {external_ipv6}\n')
+        print(f'My Public IPv6 Address is: {external_ipv6}\n')
         return
         pass
     except Exception as e:
@@ -56,11 +56,23 @@ def menu():
         pass
 
 
+
 def clear_console():
     if os.name == "nt":
         os.system("cls")
     else:
         os.system("clear")
+
+
+def get_time():
+    try:
+        current_time01 = datetime.datetime.now()
+        time_format01 = current_time01.strftime('%d/%m/%Y a las %I:%M')
+        return time_format01
+    except Exception as e:
+        print(e)
+    finally:
+        pass
 
 
 def get_json_info_ipstack(ip, key):

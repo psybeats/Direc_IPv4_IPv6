@@ -1,4 +1,4 @@
-# Alejandro Alan Gutierrez Cortes, Mie, 21/07/2021, Aplicación Informativa de direcciones IPv4 e IPv6 públicas.
+# Alejandro Alan Gutierrez Cortes, Jueves, 21/07/2021, Aplicación Informativa de direcciones IPv4 e IPv6 públicas.
 
 class Report:
 
@@ -8,8 +8,8 @@ class Report:
         self.date = f
 
     def show_report(self):
-        print('El software lo diseño: ' + self.author + '\n' + 'La actividad a realizar mediante el software es: ' +
-              self.contents + '\n' 'Ultima modificación: ' + self.date)
+        print('Última modificación hecha por: ' + self.author + '\n' + 'Proyecto: ' +
+              self.contents + '\n' 'Ultima modificación: ' + self.date + '\n')
 
 
 class Api01:
@@ -21,7 +21,7 @@ class Api01:
 
     def show_api01(self):
         print(
-            '\n' + 'La API Key pudiera ser de la siguiente manera: ' + self.api01_ty +
+            'La API Key pudiera ser de la siguiente manera: ' + self.api01_ty +
             '\n' + 'La red pudiera ser tipo IPv4: ' + self.api01_type1 +
             '\n' + 'La red pudiera ser tipo IPv6: ' + self.api01_type2)
 
