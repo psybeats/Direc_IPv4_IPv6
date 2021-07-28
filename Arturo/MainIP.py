@@ -5,6 +5,7 @@
 import urllib.parse
 import requests
 import os
+from colorit import *
 import colorama
 from colorama import Fore
 from colorama import Style
@@ -16,26 +17,37 @@ import ipstack as stack
 import ipapi as api
 import classforAPI as clApi
 
-print(Fore.GREEN + "=*="*20 + Style.RESET_ALL)
-print(Fore.CYAN + Style.BRIGHT +"Informative application of public IPv4 and IPv6 addresses" + Style.RESET_ALL )
-print(Fore.GREEN + "=*="*20 + Style.RESET_ALL)
 
 try:
 	while True:
-		print(Fore.RED + Style.BRIGHT + "Select an API to work" + Style.RESET_ALL) 
-		print(Fore.MAGENTA + Style.BRIGHT + "1. IPstack \n" +
+		print(color("=*="*20, (224, 242, 241)))
+		print(color("Informative application of public IPv4 and IPv6 addresses",(255, 255, 0)), end=""),
+		print(color(" ||", (224, 242, 241)))
+
+		print(color("=*="*20, (224, 242, 241)))
+		print(Fore.RED + Style.BRIGHT + "Select an API to work\t\t\t\t\t " + Style.RESET_ALL, end=""),
+		print(color(" ||", (224, 242, 241)))
+		print(color("=*="*20, (224, 242, 241)))
+
+		print(color("1. IPstack \n" +
 			  "2. IPapi \n" +
 			  "0. Exit \n" +
-			  "Choose an option: " + Style.RESET_ALL)
+			  "Choose an option: ", (3, 169, 244)))
 		user_decision = input()
 ### SELECCIONO IPSTACK - SELECCIONAR ENTRE IPv4 E IPv6 ***********************************************************
 		if user_decision == '1':
-			print(Fore.GREEN + Style.NORMAL + "=*="*20 + Style.RESET_ALL)
-			print(Fore.YELLOW + Style.BRIGHT + "Press Enter twice to return to the menu" + Style.RESET_ALL)
-			print(Fore.RED + Style.NORMAL + "Select the type of IP" + Style.RESET_ALL)
-			print(Fore.BLUE + Style.NORMAL + "1. IPv4\n" + 
-				  	"2. IPv6\n" +
-			  		"\nChoose an option: " + Style.RESET_ALL)
+
+			os.system("cls")
+
+			
+			print(color("Press Enter twice to return to the menu", (255, 179, 0)))
+
+			print(color("=*="*20, (224, 242, 241)))
+			print(Fore.RED + Style.BRIGHT + "Select the type of IP\t\t\t\t\t " + Style.RESET_ALL, end=""),
+			print(color(" ||", (224, 242, 241)))
+			print(color("=*="*20, (224, 242, 241)))
+			print(color("1. IPv4\n" + "2. IPv6\n" + "Choose an option: ", (3, 169, 244)))
+			
 			user_decision_type = input()
 			
 ### SELECCIONAR LA OPCION NUMERO 1, IPv4 PARA IPSTACK ------------------------------------------------------------
@@ -47,17 +59,22 @@ try:
 
 					ip1 = stack.consultIPstack(ipaddres)
 
-					print(Fore.CYAN + "=*="*21 + Style.RESET_ALL)
-					print(Fore.LIGHTYELLOW_EX + Style.BRIGHT + tabulate(ip1, headers='firstrow', tablefmt='grid') + Style.RESET_ALL)
-					print(Fore.CYAN + "=*="*21 + Style.RESET_ALL)
+					print(color("=*="*24, (224, 242, 241)))
+					print(color(tabulate(ip1, headers='firstrow', tablefmt='grid'), (255, 235, 59)))
+					print(color("=*="*24, (224, 242, 241)))
 
 					typeip = clApi.typeAPI(ipaddres)
 					print_typeIP= typeip.yourIP_is_ipv4()
 					print_rangeIP = typeip.rangeIPv4()
 
-					print(print_typeIP + "\n" + print_rangeIP)
+					print(print_typeIP + "\t\t\t\t\t\t      ",end=""),
+					print("||")
+					print(print_rangeIP + "\t\t\t       ",end=""),
+					print("*")
+					print("Your API used was: " + nameAPI + "\t\t\t\t\t      ",end=""),
+					print("||")
+					print(color("=*="*24, (224, 242, 241)))
 
-					print("Your API used was: " + nameAPI)
 					print(Fore.GREEN + Style.BRIGHT + "\nPress enter to return to the menu!!!" + Style.RESET_ALL)
 				except:
 					os.system("cls")
@@ -73,9 +90,9 @@ try:
 
 					ip1 = stack.consultIPv6stack(ipaddres)
 
-					print(Fore.CYAN + "=*="*21 + Style.RESET_ALL)
-					print(Fore.LIGHTYELLOW_EX + Style.BRIGHT + tabulate(ip1, headers='firstrow', tablefmt='grid') + Style.RESET_ALL)
-					print(Fore.CYAN + "=*="*21 + Style.RESET_ALL)
+					print(color("=*="*21, (224, 242, 241)))
+					print(color(BRIGHT + tabulate(ip1, headers='firstrow', tablefmt='grid'), (255, 235, 59)))
+					print(color("=*="*21, (224, 242, 241)))
 
 					print("Your API used was: " + nameAPI)
 					print(Fore.GREEN + Style.BRIGHT + "\nPress enter to return to the menu!!!" + Style.RESET_ALL)
@@ -86,11 +103,17 @@ try:
 
 ### SELECCIONO IPAPI - SELECCIONAR ENTRE IPv4 E IPv6 ***********************************************************
 		elif user_decision == '2':
-			print(Fore.GREEN + Style.NORMAL + "=*="*20 + Style.RESET_ALL)
-			print(Fore.YELLOW + Style.BRIGHT + "Press Enter twice to return to the menu" + Style.RESET_ALL)
-			print(Fore.RED + Style.NORMAL + "Select the type of IP" + Style.RESET_ALL)
-			print(Fore.BLUE + Style.NORMAL + "1. IPv4\n" + 
-				  "2. IPv6" + Style.RESET_ALL)
+			os.system("cls")
+
+			
+			print(color("Press Enter twice to return to the menu", (255, 179, 0)))
+
+			print(color("=*="*20, (224, 242, 241)))
+			print(Fore.RED + Style.BRIGHT + "Select the type of IP\t\t\t\t\t " + Style.RESET_ALL, end=""),
+			print(color(" ||", (224, 242, 241)))
+			print(color("=*="*20, (224, 242, 241)))
+			print(color("1. IPv4\n" + "2. IPv6\n" + "Choose an option: ", (3, 169, 244)))
+			
 			user_decision_ipapi = input()
 ### SELECCIONAR LA OPCION NUMERO 1, IPv4 PARA IPAPI ------------------------------------------------------------
 			if user_decision_ipapi == '1':
@@ -101,15 +124,22 @@ try:
 
 					ip2 = api.consultIP(ipaddres2)
 
-					print(Fore.CYAN + "=*="*24 + Style.RESET_ALL)
-					print(Fore.LIGHTYELLOW_EX + Style.BRIGHT + tabulate(ip2, headers='firstrow', tablefmt='grid') + Style.RESET_ALL)
-					print(Fore.CYAN + "=*="*24 + Style.RESET_ALL)
+					print(color("=*="*24, (224, 242, 241)))
+					print(color(tabulate(ip2, headers='firstrow', tablefmt='grid'), (255, 235, 59)))
+					print(color("=*="*24, (224, 242, 241)))
 
 					typeip = clApi.typeAPI(ipaddres2)
 					print_typeIP= typeip.yourIP_is_ipv4()
 					print_rangeIP = typeip.rangeIPv4()
 
-					print(print_typeIP + "\n" + print_rangeIP)
+
+					print(print_typeIP + "\t\t\t\t\t\t      ",end=""),
+					print("||")
+					print(print_rangeIP + "\t\t\t       ",end=""),
+					print("*")
+					print("Your API used was: "  + nameAPI + "\t\t\t\t\t      ",end=""),
+					print("||")
+					print(color("=*="*24, (224, 242, 241)))
 
 					print(Fore.GREEN + Style.BRIGHT + "\nPress enter to return to the menu!!!" + Style.RESET_ALL)
 				except:
@@ -126,9 +156,9 @@ try:
 
 					ip2 = api.consultIPv6api(ipaddres2)
 
-					print(Fore.CYAN + "=*="*24 + Style.RESET_ALL)
-					print(Fore.LIGHTYELLOW_EX + Style.BRIGHT + tabulate(ip2, headers='firstrow', tablefmt='grid') + Style.RESET_ALL)
-					print(Fore.CYAN + "=*="*24 + Style.RESET_ALL)
+					print(color("=*="*24, (224, 242, 241)))
+					print(color(tabulate(ip2, headers='firstrow', tablefmt='grid'), (255, 235, 59)))
+					print(color("=*="*24, (224, 242, 241)))
 
 					typeip = clApi.typeAPI(ipaddres2)
 
@@ -146,8 +176,14 @@ try:
 ###OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 		elif user_decision == '0':
 			os.system("cls")
-			print(Fore.RED + "The program ended" + Style.RESET_ALL)
-			print(Fore.YELLOW + "Thank you for using this program" + Style.RESET_ALL)
+
+			now = datetime.now()
+			date = now.strftime('%A %B %d, %Y')
+			time = now.strftime('%I:%M%p')
+
+			print(color("Developer name: Erick Arturo Flores Gomez",(51, 255, 0)))
+			print(color("Project creation date: Thursday July 22, 2021.",(51, 255, 102)))
+			print(color("The end date is: " + date + " and the time is: " + time, (51, 255, 102)))
 			break
 
 		input()
@@ -157,9 +193,5 @@ except Exception as e:
     print(f'\n{e}')
 
 finally:
-	now = datetime.now()
-	format = now.strftime('%A %B %d, %Y - %I:%M%p')
-
-	print(Fore.GREEN + Style.BRIGHT + "Developer name: Erick Arturo Flores Gomez" + Style.RESET_ALL)
-	print(Fore.GREEN + Style.BRIGHT + "Project creation date: Thursday July 22, 2021." + Style.RESET_ALL)
-	print(Fore.GREEN + "The end date and time is: " + format + Style.RESET_ALL)
+	print(color("The program ended", (255, 0, 0)))
+	print(color("Thank you for using this program", (255, 204, 0)))
